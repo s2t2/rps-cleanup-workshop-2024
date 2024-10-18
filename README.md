@@ -18,3 +18,9 @@ Run the RPS game:
 
 python -m app.game
 ```
+
+Run the web application interface:
+
+```sh
+python -m app.web_game
+```

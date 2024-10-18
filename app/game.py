@@ -4,26 +4,9 @@ from random import choice
 
 VALID_OPTIONS = ["rock", "paper", "scissors"]
 
-#
-# USER SELECTION
-#
 
-u = input("Please choose one of 'Rock', 'Paper', or 'Scissors': ").lower()
-print("USER CHOICE:", u)
-if u not in VALID_OPTIONS:
-    print("OOPS, TRY AGAIN")
-    exit()
-
-#
-# COMPUTER SELECTION
-#
-
-c = choice(VALID_OPTIONS)
-print("COMPUTER CHOICE:", c)
-
-#
-# DETERMINATION OF WINNER
-#
+def generate_computer_choice():
+    return choice(VALID_OPTIONS)
 
 def determine_outcome(u:str, c:str):
     """Determines the winner in a game of R, P, S.
@@ -53,5 +36,30 @@ def determine_outcome(u:str, c:str):
         return "TIE GAME"
 
 
-outcome = determine_outcome(u, c)
-print(outcome)
+if __name__ == "__main__":
+    # only run the contents below when we run this file from the command line
+    # but not when we import content from this file
+
+    #
+    # USER SELECTION
+    #
+
+    u = input("Please choose one of 'Rock', 'Paper', or 'Scissors': ").lower()
+    print("USER CHOICE:", u)
+    if u not in VALID_OPTIONS:
+        print("OOPS, TRY AGAIN")
+        exit()
+
+    #
+    # COMPUTER SELECTION
+    #
+
+    c = generate_computer_choice()
+    print("COMPUTER CHOICE:", c)
+
+    #
+    # DETERMINATION OF WINNER
+    #
+
+    outcome = determine_outcome(u, c)
+    print(outcome)
